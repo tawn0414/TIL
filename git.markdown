@@ -9,7 +9,7 @@
 아래의 설정은 이력 작성자(author)를 설정하는 것으로, 컴퓨터에서 최초에 한번만 설정하면 된다.
 
 ```bash
-$ git config --global user.name tawn <<본인 깃허브 계정
+$ git config --global user.name tawn0414 <<본인 깃허브 계정
 $ git config --global user.email tawn0414@naver.com <<본인 깃허브 이메일
 ```
 
@@ -71,8 +71,6 @@ $ git commit -m 'Init'
  create mode 100644 typora-setup-x64.exe
 
 ```
-
-
 
 
 
