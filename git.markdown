@@ -86,3 +86,27 @@ Date:   Thu Dec 5 16:55:41 2019 +0900
 
 ```
 
+이런식으로 git add와 git commit으로 내 이력을 추가할 수 있다.
+
+이후 github에서 push내용을 복붙하면 github사이트에 올릴 수 있다.
+
+
+
+## 2. 원격 저장소(remote repository) 활용
+
+> 원격 저장소는 다양한 서비스를 통해 제공 받을 수 있다.
+>
+> github, gitlab, bitbucket... 대표적으로 많이 쓰이는게 github이라는 말.
+
+## 1. 원격 저장소 등록
+
+```bash
+$ git remote add origin https~
+```
+
+등록된 원격 저장소는 아래의 명령어로 확인할 수 있다.
+
+```bash
+$ git remote -v
+```
+
