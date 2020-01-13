@@ -1,0 +1,138 @@
+<<회원테이블>>
+INSERT INTO TB_MEM(MEM_ID, MEM_NM, MEM_CD, PWD, PWD_HINT, PWD_HINT_ANS, SSN, BIRTH_DT, MALE_FLG, TEL_NO, CELL_NO, ADDR, EMAIL, EMAIL_RCV_FLG, MEM_REG_DTM)      
+VALUES('user01', '홍길동', 'Silver', 'user01', '초등학교는?', '서울초등학교', '8010101234567', '19801010', 'F', '02-555-4567', '010-234-4567', '서울시 서초구 서초동 서초아파트 101동 1001호', 'abcd@email.com', 'Y', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ; 
+ 
+INSERT INTO TB_MEM(MEM_ID, MEM_NM, MEM_CD, PWD, PWD_HINT, PWD_HINT_ANS, SSN, BIRTH_DT, MALE_FLG, TEL_NO, CELL_NO, ADDR, EMAIL, EMAIL_RCV_FLG, MEM_REG_DTM)      
+VALUES('admin01', '관리자', 'Silver', 'admin01', '고등학교는?', '삼성고등학교', '7010101234567', '19701010', 'F', '02-555-1000', '010-100-2000', '서울시 서초구 서초동 삼성아파트 201동 1201호', 'admin@email.com', 'Y', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ; 
+
+INSERT INTO TB_MEM(MEM_ID, MEM_NM, MEM_CD, PWD, PWD_HINT, PWD_HINT_ANS, SSN, BIRTH_DT, MALE_FLG, TEL_NO, CELL_NO, ADDR, EMAIL, EMAIL_RCV_FLG, MEM_REG_DTM)      
+VALUES('user02', '일지매', 'Silver', 'user02', '초등학교는?', '멀캠초등학교', '9010101234567', '19901010', 'F', '02-331-3331', '010-333-3333', '서울시 서초구 서초동 서초아파트 301동 1301호', 'efgh@email.com', 'Y', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ; 
+
+INSERT INTO TB_MEM(MEM_ID, MEM_NM, MEM_CD, PWD, PWD_HINT, PWD_HINT_ANS, SSN, BIRTH_DT, MALE_FLG, TEL_NO, CELL_NO, ADDR, EMAIL, EMAIL_RCV_FLG, MEM_REG_DTM)      
+VALUES('user03', '이지매', 'Silver', 'user03', '초등학교는?', '역삼초등학교', '9110101234567', '19911010', 'F', '02-441-4441', '010-444-4444', '서울시 서초구 서초동 서초아파트 401동 1401호', 'ijkl@email.com', 'Y', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ; 
+
+INSERT INTO TB_MEM(MEM_ID, MEM_NM, MEM_CD, PWD, PWD_HINT, PWD_HINT_ANS, SSN, BIRTH_DT, MALE_FLG, TEL_NO, CELL_NO, ADDR, EMAIL, EMAIL_RCV_FLG, MEM_REG_DTM)      
+VALUES('user04', '삼지매', 'Silver', 'user04', '초등학교는?', '강남초등학교', '9510101234567', '19951010', 'F', '02-551-5551', '010-555-5555', '서울시 서초구 서초동 서초아파트 501동 1501호', 'tawn@email.com', 'Y', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ; 
+ 
+
+<<상품테이블>>
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000001', '위니네크리스', 'CAT000000005', '착용하셨을때 떨어지는 라인이 정말 예뻐요', 39000, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'acc_image1.jpg', 'acc_image1.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000002', '올인원크리스', 'CAT000000005', '진주의방울방울이 끝내줍니다.', 39000, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'acc_image2.jpg', 'acc_image2.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000003', '블론디네크리스', 'CAT000000005', '조금 있으면 품절이예요 빨리 서두르세요', 18000, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'acc_image3.jpg', 'acc_image3.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000004', '로렐라이네크리스', 'CAT000000005', 'Best of Best', 15000, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'acc_image4.jpg', 'acc_image4.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000005', '스트로우네크리스', 'CAT000000005', '악세사리 멋져요', 15000, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'acc_image5.jpg', 'acc_image5.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+
+
+
+
+
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000006', '글로아셔링ops', 'CAT000000001', '사랑스런 셔링의 루즈핏', 22000, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'dress_images1.jpg', 'dress_images1.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000007', '바이블ops', 'CAT000000001', '큐트한 라인감이 여성스러워요', 23900, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'dress_images2.jpg', 'dress_images2.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000008', '텐디박스ops', 'CAT000000001', '편안해요 홈웨어로도 좋아요', 24000, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'dress_images3.jpg', 'dress_images3.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000009', '마리안 ops', 'CAT000000001', '살랑거리는 핏이 가녀린 여성미를 연출해줄 봄 원피스', 36000, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'dress_images4.jpg', 'dress_images4.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000010', '디아망 ops', 'CAT000000001', '시스루 디테일로 여성스러움에 은은한 섹시함까지', 59800, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'dress_images5.jpg', 'dress_images5.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000011', 'no.3932', 'CAT000000002', '썸머 나시 남다른 비치웨어로', 9800, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'top_image1.gif', 'top_image1.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000012', '숄더홀믹스', 'CAT000000002', '네추럴한 가오리핏으로 순수하고 께끗한 이미지를 up', 38000, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'top_image2.jpg', 'top_image2.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000013', '클로라모티브', 'CAT000000002', '넉넉한 핏과 레이스패턴으로 여리하고 여성스러워요', 22000, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'top_image3.jpg', 'top_image3.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000014', '타임포켓', 'CAT000000002', '부드러운 소재로 착용감 정말 편해요', 26000, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'top_image4.jpg', 'top_image4.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000015', '글로니린넨', 'CAT000000002', '체형커버에도 좋은 장점', 27400, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'top_image5.jpg', 'top_image5.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000016', '7부쿨팬츠', 'CAT000000003', '여름까지 쭉 입기 좋은 소재와 베이직한 디자인으로 소장가치 up',14500, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'bottom_image1.gif', 'bottom_image1.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000017', '미카베이직펜츠', 'CAT000000003', '세련된 느낌이 참좋아요', 24500, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'bottom_image2.jpg', 'bottom_image2.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000018', '빈스큐롯반펜츠', 'CAT000000003', '가볍고 시원하게 즐겨주세요', 24000, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'bottom_image3.jpg', 'bottom_image3.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000019', '브루노배기팬츠', 'CAT000000003', '화사한 플라워 패턴으로 스타일UP ', 26000, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'bottom_image4.jpg', 'bottom_image4.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000020', '히스토리팬츠', 'CAT000000003', '신축성좋은 슬림핏데님', 27000, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'bottom_image5.jpg', 'bottom_image5.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000021', '필립차이나 사파리', 'CAT000000004', '네추럴한 핏과 가벼운 소재로 편하게 걸치기 좋아요',61800, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'outer_image1.gif', 'outer_image1.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000022', '띠어리nb', 'CAT000000004', '아우터 셔츠로 연출하기 좋은 실용적인 아이템', 59000, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'outer_image2.jpg', 'outer_image2.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000023', '메종더블', 'CAT000000004', '날씬하게 떨어지는 핏이 정말 매력적인', 73000, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'outer_image3.jpg', 'outer_image3.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000024', '세인트린넨jk', 'CAT000000004', '린넨 100% 고급스러운 자켓!소재,디자인,핏,마감 정말 좋은 퀄리티메이드 아이템!', 68000, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'outer_image4.jpg', 'outer_image4.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+INSERT INTO TB_PRODUCT(PRD_NO, PRD_NM, CATEGORY_NO, PRD_DES, SELL_PRC_UNIT, SELL_START_DT, SELL_END_DT, DLV_CONSTRAINT, AS_FLG, RETURN_FLG, IMG_ORG_FILE_NM, IMG_GEN_FILE_NM, REG_ID, REG_DTM) 
+VALUES('PRD000000025', '메이퀸 진주 조끼', 'CAT000000004', '가볍게 걸치기만해도 멋스러운 아이템!', 49300, '20140201', '20141201', '국내 배송만 됩니다.', 'Y', 'Y',  'outer_image5.jpg', 'outer_image5.jpg', 'admin', to_char(sysdate, 'YYYYMMDDHH24MISS'))  ;
+
+
+
+insert into TB_ORDER(ORD_NO, MEM_ID, ORD_ANT, RCVR_NM, RCVR_TEL_NO, RCVR_ADDR, DLV_CORP_NO, DLV_REQ, ORD_STAT_CD, ORD_DTM)
+values('AAA000001','user01',493000,'홍길동','010-234-4567','서울시 서초구 서초동 서초아파트 105동 1001호','AA01','집앞에 두고가주세요','A01',to_char(sysdate, 'YYYYMMDDHH24MISS')) ;
+
+insert into TB_ORDER(ORD_NO, MEM_ID, ORD_ANT, RCVR_NM, RCVR_TEL_NO, RCVR_ADDR, DLV_CORP_NO, DLV_REQ, ORD_STAT_CD, ORD_DTM)
+values('AAA000002','admin01',0,'관리자','010-100-2000','서울시 서초구 서초동 삼성아파트 201동 1201호','AA02','집앞에 두고가주세요','A02',to_char(sysdate, 'YYYYMMDDHH24MISS')) ;
+
+insert into TB_ORDER(ORD_NO, MEM_ID, ORD_ANT, RCVR_NM, RCVR_TEL_NO, RCVR_ADDR, DLV_CORP_NO, DLV_REQ, ORD_STAT_CD, ORD_DTM)
+values('AAA000003','user02',0,'일지매','010-333-3333','서울시 서초구 서초동 서초아파트 301동 1301호','AA03','집앞에 두고가주세요','A03',to_char(sysdate, 'YYYYMMDDHH24MISS')) ;
+
+insert into TB_ORDER(ORD_NO, MEM_ID, ORD_ANT, RCVR_NM, RCVR_TEL_NO, RCVR_ADDR, DLV_CORP_NO, DLV_REQ, ORD_STAT_CD, ORD_DTM)
+values('AAA000004','user03',0,'이지매','010-444-4444','서울시 서초구 서초동 서초아파트 401동 1401호','AA04','집앞에 두고가주세요','A04',to_char(sysdate, 'YYYYMMDDHH24MISS')) ;
+
+insert into TB_ORDER(ORD_NO, MEM_ID, ORD_ANT, RCVR_NM, RCVR_TEL_NO, RCVR_ADDR, DLV_CORP_NO, DLV_REQ, ORD_STAT_CD, ORD_DTM)
+values('AAA000005','user04',0,'삼지매','010-555-5555','서울시 서초구 서초동 서초아파트 501동 1501호','AA05','집앞에 두고가주세요','A05',to_char(sysdate, 'YYYYMMDDHH24MISS')) ;
+
+insert into TB_ORDER_PRODUCT(ORD_NO,PRD_NO,QTY)
+values('AAA000001','PRD000000025',1);
+
+insert into TB_ORDER_PRODUCT(ORD_NO,PRD_NO,QTY)
+values('AAA000002','PRD000000025',2);
+
+insert into TB_ORDER_PRODUCT(ORD_NO,PRD_NO,QTY)
+values('AAA000003','PRD000000024',1);
+
+insert into TB_ORDER_PRODUCT(ORD_NO,PRD_NO,QTY)
+values('AAA000004','PRD000000024',1);
+
+insert into TB_ORDER_PRODUCT(ORD_NO,PRD_NO,QTY)
+values('AAA000005','PRD000000023',1);
+
+CONSTRAINT_NAME
+CONSTRAINT_TYPE
+OWNER
