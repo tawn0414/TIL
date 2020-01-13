@@ -1,0 +1,106 @@
+create table member(
+	id varchar2(20) primary key,
+	pass varchar2(20) not null,
+	name varchar2(20) not null,
+	identi varchar2(30) not null,
+	phonenum varchar2(30) not null,
+	height number not null,
+	weight number not null,
+	gender varchar2(10) not null,
+	constraint ck_M_gender check(gender in ('³²','¿©'),
+	level varchar2(20) not null,
+	constraint ck_M_level check(level in ('normal','vip','vvip')),
+	point number not null,
+	money number not null,
+	regdate date not null,
+	mgr_num number
+);
+
+create table manager(
+	mgr_id varchar2(20) primary key,
+	mgr_num number not null,
+	mgr_pass varchar2(20) not null,
+	mgr_name varchar2(20) not null,
+	mgr_regdate date not null,
+	id varchar2(20),
+	comp_id varchar2(20),
+	constraint fk_mgr_id foreign key(id)
+	references member(id),
+	constraint fk_mgr_compid foreign key(comp_id)
+	references company(comp_id)
+);
+
+create table introduce(
+	intro_num number primary key,
+	mgr_id varchar2(20) not null,
+	intro_title varchar2(100),
+	intro_content varchar2(500),
+	constraint fk_intro_mgrid foreign key(mgr_id)
+	references manager(mgr_id)
+);
+
+create table QnA(
+	qna_num number primary key,
+	mgr_id varchar2(20) not null,
+	qna_title varchar2(100),
+	qna_content varchar2(500),
+	constraint fk_qna_mgrid foreign key(mgr_id)
+	references manager(mgr_id)
+);
+
+create table ask(
+	ask_num number primary key,
+	id varchar2(20) not null,
+	ask_title varchar2(100),
+	ask_content varchar2(500),
+	ask_regdate date not null,
+	ask_mem_reply varchar2(500),
+	ask_mgr_reply varchar2(500),
+	constraint fk_ask_id foreign key(id)
+	references member(id)
+);
+
+create table keyword_search(
+	search_num number primary key,
+	mgr_id varchar2(20) not null,
+	keyword varchar2(100) not null
+	constraint fk_ks_mgrid foreign key(mgr_id)
+	references manager(mgr_id)
+);
+
+create table realchat(
+	chat_num number primary key,
+	id varchar2(20) not null,
+	chat_content varchar2(500),
+	chat_date date not null,
+	chat_time date not null,
+	constraint fk_R_id foreign key(id)
+	references member(id)
+);
+
+create table company(
+	comp_id varchar2(20) primary key,
+	comp_name varchar2(20) not null
+
+);
+
+create table restaurant(
+	rest_id varchar2(20) primary key,
+	rest_name varchar2(50) not null,
+	rest_loc varchar2(100) not null,
+	rest_good char(1),
+	reci_id varchar2(20) not null,
+	mgr_id varchar2(20) not null	
+);
+
+create table restaurant_detail(
+	rest_detail_id varchar2(20) primary key,
+	rest_id varchar2(20) not null,
+	rest_name varchar2(50) not null,
+	rest_point number,
+	rest_feel varchar2(500),
+	rest_menu varchar2(20) not null,
+	constraint fk_rd_restid foreign key(rest_id)
+	references restaurant(rest_id)
+
+);

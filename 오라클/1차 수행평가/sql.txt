@@ -1,0 +1,14 @@
+conn scott/tiger
+create table customer(
+       id varchar2(20) primary key,
+       pass varchar2(20),
+       name varchar2(20) not null,
+       regdate date,
+       point number,
+       addr varchar2(30));
+
+insert into customer values('kims','kkk','kim',sysdate,1000,'¸ÖÄ·');
+
+insert into customer values('Lees','LLL','Lee',sysdate,600,'¿ª»ï');
+
+insert into customer values('jangs','jjj','jang',sysdate,800,'°­³²');

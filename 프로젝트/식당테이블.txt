@@ -1,0 +1,20 @@
+create table restaurant(
+	rest_id varchar2(20) primary key,
+	rest_name varchar2(50) not null,
+	rest_loc varchar2(100) not null,
+	rest_good char(1),
+	reci_id varchar2(20) not null,
+	mgr_id varchar2(20) not null	
+);
+
+create table restaurant_detail(
+	rest_detail_id varchar2(20) primary key,
+	rest_id varchar2(20) not null,
+	rest_name varchar2(50) not null,
+	rest_point number,
+	rest_feel varchar2(500),
+	rest_menu varchar2(20) not null,
+	constraint fk_rd_restid foreign key(rest_id)
+	references restaurant(rest_id)
+
+);
