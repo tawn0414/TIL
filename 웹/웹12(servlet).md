@@ -83,8 +83,9 @@
   - ![image-20200117153359321](images/image-20200117153359321.png)
 
 - forward의 실행흐름(한번의 요청)
-  - 클라이언트가 서블릿 요청 -> 서블릿에서 요청객체 생성됨 -> 여기에 setAttribute로 데이터공유 -> requestDispatcher.forward(request,response) 만나면 jsp로 요청을 전달할 때 request와 response객체를 같이 전달. -> 생성되어져 있던 요청객체에서 getAttribute로 데이터 가져옴 -> 클라이언트에게 응답.
-
+  
+- 클라이언트가 서블릿 요청 -> 서블릿에서 요청객체 생성됨 -> 여기에 setAttribute로 데이터공유 -> requestDispatcher.forward(request,response) 만나면 jsp로 요청을 전달할 때 request와 response객체를 같이 전달. -> 생성되어져 있던 요청객체에서 getAttribute로 데이터 가져옴 -> 클라이언트에게 응답.
+  
 - include
 
   ![image-20200117162020974](images/image-20200117162020974.png)
@@ -101,3 +102,50 @@
   - 클라이언트가 서블릿 요청 -> 서블릿에서 요청객체 생성 -> 여기에 setAttribute로 데이터공유 ->include로 jsp가 요청재지정(호출)됨 -> jsp에서의 실행결과를 갖고 다시 서블릿으로 돌아옴 -> 서블릿에서 클라이언트에게 응답 
 
 - 데이터를 공유하기위해선 forward와 include방식을 써야한다. 근데 jsp를 쓸때는 제어를 모두 서블릿으로 넘기는 include방식이 적합
+
+
+
+## 에러 점검(서블릿&jsp나 스프링이나 똑같음. )
+
+- jsp파일에서 바로 run on server를 하면 에러가 뜬다.
+
+![image-20200120095153110](images/image-20200120095153110.png)
+
+- jsp파일은 아래의 경로에 있음. editplus로 어디서 에러가 나는지 확인하기.
+
+![image-20200120095251068](images/image-20200120095251068.png)
+
+![image-20200120095338394](images/image-20200120095338394.png)
+
+- [500번 에러 점검순서]
+
+1. 서블릿에서 setAttribute한 이름이랑 jsp에서 getAttribute한 이름이 같은지 확인(공유명확인)
+2. DAO가 잘 조회됬는지 확인 => size가 0인지확인(?), while문이 잘 돌아가나 확인(DB조회가 잘 되는지 확인)
+3. sql문 점검
+4. 매개변수 점검
+5. 서블릿에서 getParameter가 잘 작동하는지 점검.
+
+
+
+- 부서이름을 클릭하면 그 정보를 조회하고 싶다.
+  - read.do 서블릿을 만들고 primary key인 deptno를 조건으로 줘야함.
+
+![image-20200120101053209](images/image-20200120101053209.png)
+
+![image-20200120101115561](images/image-20200120101115561.png)
+
+- 전산실 클릭했을 때 아래 사진처럼 deptno=001이 같이 넘어가는 것을 볼 수 있다.
+
+![image-20200120101255959](images/image-20200120101255959.png)
+
+- 인코딩.
+  - GET방식이어도 아래 인코딩 코드는 항상 있어야됨.
+
+![image-20200120161141835](images/image-20200120161141835.png)
+
+![image-20200120161350003](images/image-20200120161350003.png)
+
+- 원래 info의 한글데이터가 깨져서 아래 콘솔에 한글정보 추출:?????이 떴는데 위의 과정을 거치고 나서 제대로 한글이 출력된다.
+  - 크롬에서만 됨. 익스플로러에서 한글 넘기는건 나중에 자바스크립트로 처리하는거 알려준다고 하심.
+
+![image-20200120161928926](images/image-20200120161928926.png)
