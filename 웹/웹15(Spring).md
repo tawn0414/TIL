@@ -61,7 +61,7 @@
 
 - 기본 default는 singleton => 객체가 하나만 생성됨.
 
-- prototype: 객체가 요청할 될 때 마다 생성된다.
+- prototype: 객체가 요청할 될 때 마다 생성된다. => ApplicationContext을 주로 쓰는데 이건 무조건 처음에 모든 객체를 생성하니까 getBean했을 때만 객체생성하게 해주고 싶을 때 얘를 넣어주자.
 
 ![image-20200122131758587](images/image-20200122131758587.png)![image-20200122131835310](images/image-20200122131835310.png)
 
@@ -73,7 +73,8 @@
 
   ![image-20200122132410793](images/image-20200122132410793.png)
 
-  - init과 destroy가 한번만 호출됨.
+  - factory.getBean하면 init이(인터페이스에 작성한 것) 처음에 한번만 호출되고 factory.close()를 하면 destroy가 마지막에 한번 호출 된다. 
+    - 미리 xml파일에 init이랑 destroy를 설정해줘야됨.
 
 ![image-20200122132654281](images/image-20200122132654281.png)
 
@@ -104,6 +105,8 @@
   ![image-20200122140858516](images/image-20200122140858516.png)
 
 - 여기까지가 DL임.
+
+  - main 만든곳에서 메소드 만들어서 실행시킨 것.
 
 
 
