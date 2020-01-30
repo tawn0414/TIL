@@ -163,7 +163,7 @@
 
 ![image-20200129134044073](images/image-20200129134044073.png)
 
-- 원래 아래사진은 밑줄에 view/ 가 있었는데 지웠음.
+- 원래 아래사진은 밑줄에 views/ 가 있었는데 지웠음.
 
 ![image-20200129135107478](images/image-20200129135107478.png)
 
@@ -304,6 +304,7 @@
 
 - put-attribute => 영역에 대한 이름.
 - template과 value에는 경로설정.
+  - 템플릿 이름은 mainTemplate, 경로는 template임. 여기에 3개의 영역이 있음(put-attripute), 각 영역의 이름은 name이고 경로는 value임.
 
 ![image-20200129164708544](images/image-20200129164708544.png)
 
@@ -327,6 +328,10 @@
 
 
 ![image-20200129174128988](images/image-20200129174128988.png)
+
+- 템플릿은 미리 등록해 놓는것.
+  - 아래 사진에 실제 요청될 뷰를 등록할 부분의 애들은 controller랑 짝짓기 할 애들임.
+    - controller의 메소드 하나 당 main-tiles의 <definition> 하나씩이라고 생각해주자.
 
 ![image-20200129174149553](images/image-20200129174149553.png)
 
