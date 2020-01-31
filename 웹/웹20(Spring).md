@@ -65,7 +65,7 @@
 ![image-20200131102436932](images/image-20200131102436932.png)
 
 - 아래 동그라미가 자원을 찾아온거임
-  - content.xml에 있는 내용들이 자원이었네.
+  - content.xml에 있는 내용들이 자원이었네
 
 ![image-20200131102526425](images/image-20200131102526425.png)
 
@@ -118,7 +118,7 @@ InitialContext로 WAS에 있는 자원 찾아올꺼임 -> InitialContext의 look
 
 - 이제 mybatis로 DB연동할 껀데 Spring하고 mybatis가 호환이 안되서 연결해주는 라이브러리(=mybatis spring)를 다운받아야함.
 
-### 여기에 2020-01-31 꺼 그림 넣기
+### ![beauty_20200131151204](images/beauty_20200131151204.jpg)
 
 
 
@@ -224,7 +224,10 @@ InitialContext로 WAS에 있는 자원 찾아올꺼임 -> InitialContext의 look
 
 ![image-20200131140614427](images/image-20200131140614427.png)
 
-- 여기까지가 mybatis를 쓰기위한 설정 끝.
+- 여기까지가 mybatis를 쓰기위한 설정 끝(3개 만짐).
+  - mybatis-config.xml
+  - board.xml (mapper)
+  - spring-config.xml
 
 
 
@@ -262,3 +265,70 @@ InitialContext로 WAS에 있는 자원 찾아올꺼임 -> InitialContext의 look
     - boardlist.jsp를 등록
 
 ![image-20200131144244241](images/image-20200131144244241.png)
+
+- 6번. 뷰 등록하기
+
+![image-20200131152505140](images/image-20200131152505140.png)
+
+- 완성
+
+![image-20200131153147588](images/image-20200131153147588.png)
+
+- 이제 글쓰기를 눌렀을때 보이는거 만들꺼임.
+- 우선 템플릿먼저 만듬
+
+![image-20200131153648003](images/image-20200131153648003.png)
+
+- boardcontroller에 메소드 만들기
+
+![image-20200131153902178](images/image-20200131153902178.png)
+
+![image-20200131154019180](images/image-20200131154019180.png)
+
+- 글쓰기 누르니까 아래 화면 뜸
+
+![image-20200131154047150](images/image-20200131154047150.png)
+
+- 이제 등록 눌렀을 때 DB로 넘어가는거 구현할 꺼
+  - boardcontroller에 메소드 구현하기
+    - 근데 이름을 같게하고 싶을 때 get방식 post방식 나눠져 있으면 아래처럼 해준다.
+
+![image-20200131161347306](images/image-20200131161347306.png)
+
+- 이제 등록을 눌러주면 DTO에 저장이 된다.
+  - 그러니까 테이블의 컬럼명과 DTO의 멤버변수명이 같아야한다.
+
+![image-20200131161443545](images/image-20200131161443545.png)
+
+![image-20200131161507403](images/image-20200131161507403.png)
+
+- 이제 insert문 쓸꺼임. -> 새로운기능 추가하는거 니까 mapper부터 시작
+  - 일단 컬럼명 부터 확인 
+
+![image-20200131162034771](images/image-20200131162034771.png)
+
+- board.xml에 insert문 작성
+  - #{title} 이런식으로 쓴건 물음표 쓴거랑 똑같은거.
+  - #{title} = ?
+
+![image-20200131162335049](images/image-20200131162335049.png)
+
+- daoimpl작성
+
+![image-20200131162533076](images/image-20200131162533076.png)
+
+- serviceimple의 insert메소드에서 daoimple에 쓴거 호출
+
+![image-20200131162649247](images/image-20200131162649247.png)
+
+- 기본은 forward인데 redirect쓰면 send redirect로 바뀜
+
+![image-20200131162840177](images/image-20200131162840177.png)
+
+- 아래처럼 내용쓰고 등록누르자.
+
+![image-20200131163012680](images/image-20200131163012680.png)
+
+- 아래처럼 된게 redirect된거임.
+
+![image-20200131163042127](images/image-20200131163042127.png)
