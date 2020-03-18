@@ -735,6 +735,7 @@ db.컬렉션명.aggregate(aggregate명령어를 정의)
   ![image-20200317151609049](images/image-20200317151609049.png)
 
 - dept별 java점수의 평균. 단, addr이 인천인 데이터만 작업. => $match를 추가해야됨.
+  
   - db.exam.aggregate([{$match:{addr:"인천"}},{$group:{_id:"$dept",평균:{$avg:"$java"}}}]);
 
 ![image-20200317152308764](images/image-20200317152308764.png)
@@ -788,7 +789,197 @@ db.컬렉션명.aggregate(aggregate명령어를 정의)
 
 
 
+### mongoimport랑 mongoexpot로 collection을 가져오고 내보내는 작업
+
+- mydb라는 데이터베이스에 score컬렉션 export하기 
+  - -d => 데이터베이스이름
+  - -c => 컬렉션 이름
+  - -o => export하고서 지정해줄 이름
+
+![image-20200318092515190](images/image-20200318092515190.png)
+
+![image-20200318092745454](images/image-20200318092745454.png)
+
+-- json형태로 export되었음. --
+
+![image-20200318092834568](images/image-20200318092834568.png)
+
+![image-20200318092810358](images/image-20200318092810358.png)
+
+- import하기
+  - /file : 파일이 있는 경로
+    - 여기에서는 지금 iot폴더 경로고 이 안에 test.csv가 있으니까 바로 test.csv라고 쓴거
+  - /headerline
+    - test.csv파일에 첫번째 줄을 제외하겠다는 의미
+      - ![image-20200318093842943](images/image-20200318093842943.png)
+  - /type
+    - 어떤 타입으로 할껀지. 디폴트가 json이라서 csv로 할 경우 지정해주자.
+
+![image-20200318093659816](images/image-20200318093659816.png)
+
+ -- 데이터가 test컬렉션으로 import됨 --
+
+![image-20200318093937192](images/image-20200318093937192.png)
+
 ### CRUD
 
-### PagingandSorting
+- mongodb의 DTO는 컬렉션과 자동으로 매핑됨.
+  - 아래처럼 어노테이션 써주자.
 
+![image-20200318095100962](images/image-20200318095100962.png)
+
+- 이거 보고 멤버변수 입력 해줌
+
+![image-20200318100609517](images/image-20200318100609517.png)
+
+- 생성자, setget, toString 모두 만들어주기
+
+![image-20200318100929531](images/image-20200318100929531.png)
+
+## PagingAndSorting
+
+- Spring data프레임 워크 내부에서 사용 할 저장소인 interface만들기
+  - T => 어떤 document를 쓸껀지
+  - Serializable => primary key의 타입
+
+### ![image-20200318101533505](images/image-20200318101533505.png)
+
+![image-20200318101818137](images/image-20200318101818137.png)
+
+- repository를 쓰려면 아래처럼 등록해줘야함.
+
+![image-20200318101946123](images/image-20200318101946123.png)
+
+#### list
+
+- 아래는 페이징 처리된 list보기.
+  - 처음에 보여질 페이지 번호를 넘겨주면 된다.
+
+![image-20200318104138540](images/image-20200318104138540.png)
+
+- servlet-context에 prefix와 suffix가 저렇게 설정되어있어서 setViewName에 list만 써준것.
+
+![image-20200318104926625](images/image-20200318104926625.png)
+
+![image-20200318105124491](images/image-20200318105124491.png)
+
+- serviceImpl은 평소랑 똑같은데 DAOImpl이 중요함
+
+![image-20200318112251310](images/image-20200318112251310.png)
+
+![image-20200318113643170](images/image-20200318113643170.png)
+
+![image-20200318113743701](images/image-20200318113743701.png)
+
+![image-20200318113952447](images/image-20200318113952447.png)
+
+![image-20200318114008223](images/image-20200318114008223.png)
+
+- findAll()
+
+![image-20200318132148601](images/image-20200318132148601.png)
+
+### Insert
+
+![image-20200318132324304](images/image-20200318132324304.png)
+
+![image-20200318133740893](images/image-20200318133740893.png)
+
+- 전체보기
+
+![image-20200318133810598](images/image-20200318133810598.png)
+
+- insert페이지
+
+![image-20200318133836461](images/image-20200318133836461.png)
+
+- 필터 처리해줘야 한글이 안깨짐
+
+![image-20200318135050735](images/image-20200318135050735.png)
+
+- insert 시작!
+
+![image-20200318134807469](images/image-20200318134807469.png)
+
+- insert 성공!
+
+![image-20200318134822552](images/image-20200318134822552.png)
+
+- mongoDB프롬프트에도 삽입된 것을 볼 수 있음.
+
+![image-20200318134912874](images/image-20200318134912874.png)
+
+- multiInsert
+
+![image-20200318141501327](images/image-20200318141501327.png)
+
+- 아래 사진대로 클릭
+
+![image-20200318141747335](images/image-20200318141747335.png)
+
+- 아래처럼 multi0 ~ 10까지 자동 삽입됨.
+
+![image-20200318141717563](images/image-20200318141717563.png)
+
+
+
+- id로 search하기
+  - mongoDB는 key:value형태임. 그래서 조건을 줄때 key와 value를 매개변수로 같이 받아야함.
+  - action은 jsp파일에서 Get방식으로 넘길 때 READ나 UPDATE로 넘기는 것을 받는 매개변수
+
+![image-20200318142807306](images/image-20200318142807306.png)
+
+![image-20200318143247909](images/image-20200318143247909.png)
+
+- 동그라미
+  - 도큐먼트 하나와 맵핑할 꺼
+
+![image-20200318144058012](images/image-20200318144058012.png)
+
+![image-20200318145211970](images/image-20200318145211970.png)
+
+![image-20200318145240154](images/image-20200318145240154.png)
+
+![image-20200318145251240](images/image-20200318145251240.png)
+
+![image-20200318145305773](images/image-20200318145305773.png)
+
+![image-20200318145318765](images/image-20200318145318765.png)
+
+- 검색하기
+
+![image-20200318145335702](images/image-20200318145335702.png)
+
+![image-20200318145352648](images/image-20200318145352648.png)
+
+![image-20200318161809169](images/image-20200318161809169.png)
+
+![image-20200318161823806](images/image-20200318161823806.png)
+
+![image-20200318163018920](images/image-20200318163018920.png)
+
+![image-20200318163050965](images/image-20200318163050965.png)
+
+
+
+![image-20200318164909855](images/image-20200318164909855.png)
+
+![image-20200318164836510](images/image-20200318164836510.png)
+
+![image-20200318164850893](images/image-20200318164850893.png)
+
+
+
+### Update
+
+![image-20200318171215194](images/image-20200318171215194.png)
+
+![image-20200318171617843](images/image-20200318171617843.png)
+
+![image-20200318171654416](images/image-20200318171654416.png)
+
+![image-20200318171738507](images/image-20200318171738507.png)
+
+- 수정 완료
+
+![image-20200318171758296](images/image-20200318171758296.png)
