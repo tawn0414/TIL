@@ -2,3 +2,4 @@ sqoop
 hive
 flume
 mongoDB
+R
